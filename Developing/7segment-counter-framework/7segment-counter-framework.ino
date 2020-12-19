@@ -9,12 +9,7 @@
 const int button = 6;
 int number = 0;
 
-void counter() {
-  if (digitalRead(button == 1))
-    number++;
-  if(number > 9)
-    number = 0;
-}
+
 
 void displayprint() {
   switch (number) {
@@ -50,13 +45,13 @@ void displayprint() {
       break;
 
     case 3:
-      digitalWrite(PIN_A, HIGH);
-      digitalWrite(PIN_B, HIGH);
-      digitalWrite(PIN_C, HIGH);
-      digitalWrite(PIN_D, HIGH);
-      digitalWrite(PIN_E, LOW);
-      digitalWrite(PIN_F, LOW);
-      digitalWrite(PIN_G, HIGH);
+      digitalWrite(PIN_A, LOW);
+      digitalWrite(PIN_B, LOW);
+      digitalWrite(PIN_C, LOW);
+      digitalWrite(PIN_D, LOW);
+      digitalWrite(PIN_E, HIGH);
+      digitalWrite(PIN_F, HIGH);
+      digitalWrite(PIN_G, LOW);
       break;
 
     case 4:
@@ -137,11 +132,16 @@ void setup()
   digitalWrite(PIN_D, LOW);
   digitalWrite(PIN_E, LOW);
   digitalWrite(PIN_F, LOW);
+
+  pinMode(button, INPUT);
 }
 
 void loop()
 {
-  counter();
+  
   displayprint();
   delay(500);
+  number = 3;
+  delay(500);
+  number = 0;
 }
