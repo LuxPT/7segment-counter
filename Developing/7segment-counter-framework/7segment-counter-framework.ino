@@ -6,23 +6,142 @@
 #define PIN_F 11
 #define PIN_G 10
 
+const int button = 6;
+int number = 0;
+
+void counter() {
+  if (digitalRead(button == 1))
+    number++;
+  if(number > 9)
+    number = 0;
+}
+
+void displayprint() {
+  switch (number) {
+
+    case 0:
+      digitalWrite(PIN_A, LOW);
+      digitalWrite(PIN_B, LOW);
+      digitalWrite(PIN_C, LOW);
+      digitalWrite(PIN_D, LOW);
+      digitalWrite(PIN_E, LOW);
+      digitalWrite(PIN_F, LOW);
+      digitalWrite(PIN_G, HIGH);
+      break;
+
+    case 1:
+      digitalWrite(PIN_A, HIGH);
+      digitalWrite(PIN_B, LOW);
+      digitalWrite(PIN_C, LOW);
+      digitalWrite(PIN_D, HIGH);
+      digitalWrite(PIN_E, HIGH);
+      digitalWrite(PIN_F, HIGH);
+      digitalWrite(PIN_G, HIGH);
+      break;
+
+    case 2:
+      digitalWrite(PIN_A, LOW);
+      digitalWrite(PIN_B, LOW);
+      digitalWrite(PIN_C, HIGH);
+      digitalWrite(PIN_D, LOW);
+      digitalWrite(PIN_E, LOW);
+      digitalWrite(PIN_F, HIGH);
+      digitalWrite(PIN_G, LOW);
+      break;
+
+    case 3:
+      digitalWrite(PIN_A, HIGH);
+      digitalWrite(PIN_B, HIGH);
+      digitalWrite(PIN_C, HIGH);
+      digitalWrite(PIN_D, HIGH);
+      digitalWrite(PIN_E, LOW);
+      digitalWrite(PIN_F, LOW);
+      digitalWrite(PIN_G, HIGH);
+      break;
+
+    case 4:
+      digitalWrite(PIN_A, HIGH);
+      digitalWrite(PIN_B, LOW);
+      digitalWrite(PIN_C, LOW);
+      digitalWrite(PIN_D, HIGH);
+      digitalWrite(PIN_E, HIGH);
+      digitalWrite(PIN_F, LOW);
+      digitalWrite(PIN_G, LOW);
+      break;
+
+    case 5:
+      digitalWrite(PIN_A, LOW);
+      digitalWrite(PIN_B, HIGH);
+      digitalWrite(PIN_C, LOW);
+      digitalWrite(PIN_D, LOW);
+      digitalWrite(PIN_E, HIGH);
+      digitalWrite(PIN_F, LOW);
+      digitalWrite(PIN_G, LOW);
+      break;
+
+    case 6:
+      digitalWrite(PIN_A, LOW);
+      digitalWrite(PIN_B, HIGH);
+      digitalWrite(PIN_C, LOW);
+      digitalWrite(PIN_D, LOW);
+      digitalWrite(PIN_E, LOW);
+      digitalWrite(PIN_F, LOW);
+      digitalWrite(PIN_G, LOW);
+      break;
+
+    case 7:
+      digitalWrite(PIN_A, LOW);
+      digitalWrite(PIN_B, LOW);
+      digitalWrite(PIN_C, LOW);
+      digitalWrite(PIN_D, HIGH);
+      digitalWrite(PIN_E, HIGH);
+      digitalWrite(PIN_F, HIGH);
+      digitalWrite(PIN_G, HIGH);
+      break;
+
+    case 8:
+      digitalWrite(PIN_A, LOW);
+      digitalWrite(PIN_B, LOW);
+      digitalWrite(PIN_C, LOW);
+      digitalWrite(PIN_D, LOW);
+      digitalWrite(PIN_E, LOW);
+      digitalWrite(PIN_F, LOW);
+      digitalWrite(PIN_G, LOW);
+      break;
+
+    case 9:
+      digitalWrite(PIN_A, LOW);
+      digitalWrite(PIN_B, LOW);
+      digitalWrite(PIN_C, LOW);
+      digitalWrite(PIN_D, LOW);
+      digitalWrite(PIN_E, HIGH);
+      digitalWrite(PIN_F, LOW);
+      digitalWrite(PIN_G, LOW);
+      break;
+  }
+}
 
 void setup()
 {
-pinMode(PIN_A, OUTPUT);
-pinMode(PIN_B, OUTPUT);
-pinMode(PIN_C, OUTPUT);
-pinMode(PIN_D, OUTPUT);
-pinMode(PIN_E, OUTPUT);
-pinMode(PIN_F, OUTPUT);
-pinMode(PIN_G, OUTPUT);
-  
+  pinMode(PIN_A, OUTPUT);
+  pinMode(PIN_B, OUTPUT);
+  pinMode(PIN_C, OUTPUT);
+  pinMode(PIN_D, OUTPUT);
+  pinMode(PIN_E, OUTPUT);
+  pinMode(PIN_F, OUTPUT);
+  pinMode(PIN_G, OUTPUT);
+
+  digitalWrite(PIN_A, LOW);
+  digitalWrite(PIN_B, LOW);
+  digitalWrite(PIN_C, LOW);
+  digitalWrite(PIN_D, LOW);
+  digitalWrite(PIN_E, LOW);
+  digitalWrite(PIN_F, LOW);
 }
 
 void loop()
 {
-  digitalWrite(13, HIGH);
-  delay(1000); // Wait for 1000 millisecond(s)
-  digitalWrite(13, LOW);
-  delay(1000); // Wait for 1000 millisecond(s)
+  counter();
+  displayprint();
+  delay(500);
 }
